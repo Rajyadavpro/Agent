@@ -34,3 +34,7 @@ INSERT INTO employees (first_name, last_name, email, hire_date, salary, departme
 VALUES 
 ('Alice', 'Johnson', 'alice.johnson@example.com', '2022-01-15', 75000.00, 1),
 ('Bob', 'Smith', 'bob.smith@example.com', '2023-03-20', 60000.00, 2);
+
+
+
+ssh sshuser@localhost -p 2222 "echo hello world"
