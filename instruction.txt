@@ -1,15 +1,15 @@
 -- Drop tables if they already exist (order matters because of FK)
-DROP TABLE IF EXISTS employees CASCADE;
-DROP TABLE IF EXISTS departments CASCADE;
+DROP TABLE IF EXISTS employees1 CASCADE;
+DROP TABLE IF EXISTS departments1 CASCADE;
 
 -- Departments table
-CREATE TABLE departments (
+CREATE TABLE departments1 (
     department_id SERIAL PRIMARY KEY,
     department_name VARCHAR(100) NOT NULL UNIQUE
 );
 
 -- Employees table
-CREATE TABLE employees (
+CREATE TABLE employees1 (
     employee_id SERIAL PRIMARY KEY,
     first_name VARCHAR(50) NOT NULL,
     last_name VARCHAR(50) NOT NULL,
@@ -18,23 +18,23 @@ CREATE TABLE employees (
     salary NUMERIC(10, 2) CHECK (salary >= 0),
     department_id INT NOT NULL,
     CONSTRAINT fk_department FOREIGN KEY (department_id) 
-        REFERENCES departments(department_id)
+        REFERENCES departments1(department_id)
         ON DELETE CASCADE
 );
 
 -- Insert departments
-INSERT INTO departments (department_name) 
+INSERT INTO departments1 (department_name) 
 VALUES 
 ('Engineering'), 
 ('HR'), 
 ('Finance');
 
--- Insert employees
-INSERT INTO employees (first_name, last_name, email, hire_date, salary, department_id)
+-- Insert employees1
+INSERT INTO employees1 (first_name, last_name, email, hire_date, salary, department_id)
 VALUES 
 ('Alice', 'Johnson', 'alice.johnson@example.com', '2022-01-15', 75000.00, 1),
 ('Bob', 'Smith', 'bob.smith@example.com', '2023-03-20', 60000.00, 2);
 
 
 
-ssh sshuser@localhost -p 2222 "echo hello world"
+ssh sshuser@localhost -p 2222 "echo hello world  --"
